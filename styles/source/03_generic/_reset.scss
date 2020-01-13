@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html,
+body {
+    width:      100%;
+    height:     100%;
+    //margin:     0;
+    //padding:    0;
+}
+
+section {
+    color:              map-get(map-get(map-get($base-colors, primary-black), onlight), foreground);
+    background-color:   map-get(map-get(map-get($base-colors, primary-black), onlight), background);
+    font-family:        "Avenir Next", Avenir, sans-serif;
+    @include text-size-generator(map-get($base-text-sizes, xs), $base-breakpoints);
+}
+
+ul,
+ol {
+    @include text-style-paragraph;
+
+    li {
+        padding-bottom: map-get(map-get($base-gutters, xxs), value) / 2;
+    }
+
+    ul,
+    ol {
+        margin-bottom: 0;
+    }
+}
+
+p {
+    @include text-style-paragraph;
+}
+
+a {
+    transition: all o.3s ease;
+    @include text-style-link;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+blockquote {
+    display: inline-block;
+    float: left;
+    clear: both;
+    position: relative;
+    margin: map-get(map-get($base-gutters, sm), value) 0;
+    padding: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:before {
+        content: "\"";
+        position: absolute;
+        top: 0;
+        left: -(map-get(map-get($base-gutters, lg), value) / 3);
+        opacity: 0.5;
+        font-weight: 700;
+    }
+
+    p {
+        position: relative;
+        @include text-style-h4;
+        font-weight: 500;
+
+        &:after {
+            content: "\"";
+            position: relative;
+            //bottom: 0;
+            margin-left: map-get(map-get($base-gutters, lg), value) / 8;
+            opacity: 0.5;
+            font-weight: 700;
+        }
+    }
+
+    
+}
+
+
+// Code, synthax highlighting
+code {
+    @include text-style-code;
+    //color: rgba(map-get(map-get(map-get($base-colors, text-primary), ondark), foreground), 0.8);
+}
+
+pre {
+	display: block;
+	overflow-x: auto;
+	padding: 0.25em .5em;
+    background: #23241f;
+    margin-top: 0;
+    border-radius: 6px;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+	color: #f8f8f2
+}
+
+.hljs-strong,
+.hljs-emphasis {
+	color: #a8a8a2
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+	color: #ae81ff
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+	color: #a6e22e
+}
+
+.hljs-strong {
+	font-weight: bold
+}
+
+.hljs-emphasis {
+	font-style: italic
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+	color: #f92672
+}
+
+.hljs-symbol,
+.hljs-attribute {
+	color: #66d9ef
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+	color: #f8f8f2
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+	color: #e6db74
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+	color: #75715e
+}

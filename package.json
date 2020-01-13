@@ -1,0 +1,16 @@
+{
+  "name": "marpit",
+  "version": "1.0.0",
+  "description": "Marpit CSS for Microblink presentations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@marp-team/marpit": "^1.4.2",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  }
+}

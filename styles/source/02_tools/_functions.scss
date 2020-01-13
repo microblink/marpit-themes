@@ -1,0 +1,110 @@
+// * -- Functions (Tools) -- *
+
+//  !important rule
+//  ====================================== */
+@function function-set-important($bool) {
+    $bool: if($bool, "!important", null);
+    @return $bool;
+};
+
+//  Maps
+//  ====================================== */
+// Get next key
+@function function-map-get-next-key($map, $key-index) {
+    // Next key
+    $next-key: null;
+
+    // List all keys
+    @each $m, $map-item in $map {
+        // Current breakpoint
+        $map-item-index: index(($map), ($m $map-item));
+
+        @if ($map-item-index == ($key-index + 1)) {
+            $next-key: $map-item;
+        }
+    }
+
+    @return $next-key;
+}
+
+// Get prev key
+@function function-map-get-prev-key($map, $key-index) {
+    // Next key
+    $next-key: null;
+
+    // List all keys
+    @each $m, $map-item in $map {
+        // Current breakpoint
+        $map-item-index: index(($map), ($m $map-item));
+
+        @if ($map-item-index == ($key-index - 1)) {
+            $next-key: $map-item;
+        }
+    }
+
+    @return $next-key;
+}
+
+//  Linear interpolation
+//  ====================================== */
+@function function-linear-interpolation($map) {
+    $keys: map-keys($map);
+
+    @if (length($keys) != 2) {
+        @error "linear-interpolation() $map must be exactly 2 values";
+    }
+
+    // The slope
+    $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/(nth($keys, 2) - nth($keys,1));
+  
+    // The y-intercept
+    $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+  
+    // Determine if the sign should be positive or negative
+    $sign: "+";
+
+    @if ($b < 0) {
+        $sign: "-";
+        $b: abs($b);
+    }
+  
+    @return calc(#{$m*100}vw #{$sign} #{$b});
+}
+
+  //  Round decimal numbers
+//  ====================================== */
+@function function-decimal-round($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+//  Floor decimal numbers
+//  ====================================== */
+@function function-decimal-floor($number, $digits: 0) {
+    @return function-decimal-round($number, $digits, floor);
+} 
