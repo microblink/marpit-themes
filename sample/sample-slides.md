@@ -22,6 +22,13 @@ Quote source:
 
 ---
 
+<!-- _class: quote-large -->
+
+Quote source:
+> This is a very important quote that spans in multiple lines and is too long to fit in a single line. Therefore, it's important to look well and professional, even though it make take more than two lines.
+
+---
+
 # Slide title
 
 - a bullet
