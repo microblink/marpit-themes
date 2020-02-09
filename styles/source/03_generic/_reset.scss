@@ -97,10 +97,12 @@ code {
 pre {
 	display: block;
 	overflow-x: auto;
-	padding: 0.25em .5em;
-    background: #23241f;
+	//padding: 0.25em .5em;
+    //background: rgba(map-get(map-get(map-get($base-colors, text-primary), ondark), foreground), 0.05);
     margin-top: 0;
-    border-radius: 6px;
+    //border-radius: 6px;
+    padding-top: 0.25em;
+    border-top: 1px solid map-get(map-get(map-get($base-colors, separator), ondark), foreground);
 }
 
 .hljs,
@@ -120,14 +122,14 @@ pre {
 .hljs-regexp,
 .hljs-literal,
 .hljs-link {
-	color: #ae81ff
+	color: map-get(map-get(map-get($base-colors, primary-blue), ondark), background);
 }
 
 .hljs-code,
 .hljs-title,
 .hljs-section,
 .hljs-selector-class {
-	color: #a6e22e
+	color: map-get(map-get(map-get($base-colors, semantic-success), ondark), background);
 }
 
 .hljs-strong {
@@ -142,12 +144,12 @@ pre {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-attr {
-	color: #f92672
+	color: map-get(map-get(map-get($base-colors, semantic-error), ondark), background);
 }
 
 .hljs-symbol,
 .hljs-attribute {
-	color: #66d9ef
+	color: map-get(map-get(map-get($base-colors, semantic-info), ondark), background);
 }
 
 .hljs-params,
@@ -165,7 +167,7 @@ pre {
 .hljs-addition,
 .hljs-variable,
 .hljs-template-variable {
-	color: #e6db74
+	color: map-get(map-get(map-get($base-colors, semantic-warning), ondark), background);
 }
 
 .hljs-comment,
