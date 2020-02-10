@@ -169,9 +169,11 @@ code {
 pre {
   display: block;
   overflow-x: auto;
+  padding: 0.25em .5em;
+  background: rgba(255, 255, 255, 0.05);
   margin-top: 0;
+  border-radius: 6px;
   padding-top: 0.25em;
-  border-top: 1px solid #38383A;
 }
 
 .hljs,
@@ -213,7 +215,7 @@ pre {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-attr {
-  color: #FF617F;
+  color: #ff8aa0;
 }
 
 .hljs-symbol,

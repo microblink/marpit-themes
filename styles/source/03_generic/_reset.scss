@@ -97,12 +97,12 @@ code {
 pre {
 	display: block;
 	overflow-x: auto;
-	//padding: 0.25em .5em;
-    //background: rgba(map-get(map-get(map-get($base-colors, text-primary), ondark), foreground), 0.05);
+	padding: 0.25em .5em;
+    background: rgba(map-get(map-get(map-get($base-colors, text-primary), ondark), foreground), 0.05);
     margin-top: 0;
-    //border-radius: 6px;
+    border-radius: 6px;
     padding-top: 0.25em;
-    border-top: 1px solid map-get(map-get(map-get($base-colors, separator), ondark), foreground);
+    //border-top: 1px solid map-get(map-get(map-get($base-colors, separator), ondark), foreground);
 }
 
 .hljs,
@@ -144,7 +144,7 @@ pre {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-attr {
-	color: map-get(map-get(map-get($base-colors, semantic-error), ondark), background);
+	color: lighten(map-get(map-get(map-get($base-colors, semantic-error), ondark), background), 8%);
 }
 
 .hljs-symbol,
