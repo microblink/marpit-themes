@@ -11,10 +11,10 @@ This repository contains [Marpit](https://marpit.marp.app) themes for Microblink
 
     ```json
     "markdown.marp.themes": [
-        "https://raw.githubusercontent.com/microblink/marpit-themes/v1.1.0/styles/output/microblink.css"
+        "https://raw.githubusercontent.com/microblink/marpit-themes/v2.0.0/styles/output/microblink.css"
     ]
     ```
 
-If you do not wish to use `v1.1.0` of the theme file, replace `v1.1.0` in the above link with either branch name or different version.
+If you do not wish to use `v2.0.0` of the theme file, replace `v2.0.0` in the above link with either branch name or different version.
 
 You can see all available versions in [releases tab](https://github.com/microblink/marpit-themes/releases).
